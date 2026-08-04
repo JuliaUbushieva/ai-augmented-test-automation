@@ -4,13 +4,13 @@ UI, API, and visual regression test suites built in Python with Playwright and S
 
 ## Tech Stack
 
-- **Playwright** (Python) — UI test automation
-- **pytest** — test runner and fixtures
-- **Applitools Eyes** — AI-powered visual regression validation *(integration in progress)*
-- **Postman AI (Postbot)** — AI-assisted API test generation *(collection in progress)*
-- **Allure** — test execution reporting
-- **Page Object Model (POM)** — test architecture pattern
-- **GitHub Actions** — CI pipeline
+- **Playwright** (Python) – UI test automation
+- **pytest** – test runner and fixtures
+- **Applitools Eyes** – AI-powered visual regression validation *(integration in progress)*
+- **Postman AI (Postbot)** – AI-assisted API test generation *(collection in progress)*
+- **Allure** – test execution reporting
+- **Page Object Model (POM)** – test architecture pattern
+- **GitHub Actions** – CI pipeline
 
 ## Project Structure
 
@@ -48,12 +48,12 @@ allure serve allure-results
 
 ## Test Coverage
 
-**UI tests** (Playwright) — run against [the-internet.herokuapp.com](https://the-internet.herokuapp.com), a public app built for test automation practice:
+**UI tests** (Playwright) – run against [the-internet.herokuapp.com](https://the-internet.herokuapp.com), a public app built for test automation practice:
 - Login: valid and invalid credentials, error message validation
 - Dynamic content loading and waits
 - Form interactions
 
-**API tests** — run against [reqres.in](https://reqres.in) public REST API:
+**API tests** – run against [reqres.in](https://reqres.in) public REST API:
 - CRUD operations (GET, POST, PUT, DELETE)
 - Status code and response schema validation
 
@@ -69,5 +69,5 @@ allure serve allure-results
 
 ## Author
 
-Iuliia Ubushieva — QA Engineer
+Julia Ubushieva – QA Engineer
 [LinkedIn](https://www.linkedin.com/in/iuliiaubushieva/)
