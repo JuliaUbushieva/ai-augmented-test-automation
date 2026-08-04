@@ -1,56 +1,52 @@
-"""API tests for reqres.in users endpoint - CRUD operations.
+"""API tests for jsonplaceholder.typicode.com posts endpoint - CRUD operations.
 
 Run: pytest tests/api/test_users_crud.py -v
 """
 import allure
 import requests
 
-HEADERS = {"x-api-key": "reqres-free-v1"}  # reqres.in free public key
 
+@allure.feature("Posts API")
+class TestPostsCrud:
 
-@allure.feature("Users API")
-class TestUsersCrud:
-
-    @allure.title("GET /users returns paginated user list")
-    def test_get_users_list(self, api_base_url):
-        response = requests.get(f"{api_base_url}/users", params={"page": 1}, headers=HEADERS)
+    @allure.title("GET /posts returns a list of posts")
+    def test_get_posts_list(self, api_base_url):
+        response = requests.get(f"{api_base_url}/posts")
         assert response.status_code == 200
         body = response.json()
-        assert body["page"] == 1
-        assert len(body["data"]) > 0
-        # Schema check on the first user record
-        user = body["data"][0]
-        for field in ("id", "email", "first_name", "last_name"):
-            assert field in user
+        assert len(body) > 0
+        # Schema check on the first record
+        for field in ("userId", "id", "title", "body"):
+            assert field in body[0]
 
-    @allure.title("GET /users/{id} returns a single user")
-    def test_get_single_user(self, api_base_url):
-        response = requests.get(f"{api_base_url}/users/2", headers=HEADERS)
+    @allure.title("GET /posts/{id} returns a single post")
+    def test_get_single_post(self, api_base_url):
+        response = requests.get(f"{api_base_url}/posts/1")
         assert response.status_code == 200
-        assert response.json()["data"]["id"] == 2
+        assert response.json()["id"] == 1
 
-    @allure.title("GET /users/{id} with non-existent id returns 404")
-    def test_get_user_not_found(self, api_base_url):
-        response = requests.get(f"{api_base_url}/users/9999", headers=HEADERS)
+    @allure.title("GET /posts/{id} with non-existent id returns 404")
+    def test_get_post_not_found(self, api_base_url):
+        response = requests.get(f"{api_base_url}/posts/99999")
         assert response.status_code == 404
 
-    @allure.title("POST /users creates a user and returns id")
-    def test_create_user(self, api_base_url):
-        payload = {"name": "Julia", "job": "QA Engineer"}
-        response = requests.post(f"{api_base_url}/users", json=payload, headers=HEADERS)
+    @allure.title("POST /posts creates a post and returns id")
+    def test_create_post(self, api_base_url):
+        payload = {"title": "QA note", "body": "Created by automated test", "userId": 1}
+        response = requests.post(f"{api_base_url}/posts", json=payload)
         assert response.status_code == 201
         body = response.json()
-        assert body["name"] == payload["name"]
-        assert "id" in body and "createdAt" in body
+        assert body["title"] == payload["title"]
+        assert "id" in body
 
-    @allure.title("PUT /users/{id} updates a user")
-    def test_update_user(self, api_base_url):
-        payload = {"name": "Julia", "job": "Senior QA Engineer"}
-        response = requests.put(f"{api_base_url}/users/2", json=payload, headers=HEADERS)
+    @allure.title("PUT /posts/{id} updates a post")
+    def test_update_post(self, api_base_url):
+        payload = {"id": 1, "title": "Updated title", "body": "Updated body", "userId": 1}
+        response = requests.put(f"{api_base_url}/posts/1", json=payload)
         assert response.status_code == 200
-        assert response.json()["job"] == payload["job"]
+        assert response.json()["title"] == payload["title"]
 
-    @allure.title("DELETE /users/{id} returns 204 No Content")
-    def test_delete_user(self, api_base_url):
-        response = requests.delete(f"{api_base_url}/users/2", headers=HEADERS)
-        assert response.status_code == 204
+    @allure.title("DELETE /posts/{id} returns 200")
+    def test_delete_post(self, api_base_url):
+        response = requests.delete(f"{api_base_url}/posts/1")
+        assert response.status_code == 200
