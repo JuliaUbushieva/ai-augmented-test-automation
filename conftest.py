@@ -4,8 +4,8 @@ import pytest
 
 @pytest.fixture(scope="session")
 def api_base_url():
-    """Base URL for the public demo REST API."""
-    return "https://reqres.in/api"
+    """Base URL for the public demo REST API (no auth required)."""
+    return "https://jsonplaceholder.typicode.com"
 
 
 @pytest.fixture(scope="session")

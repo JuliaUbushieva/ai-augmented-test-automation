@@ -53,7 +53,7 @@ allure serve allure-results
 - Dynamic content loading and waits
 - Form interactions
 
-**API tests** — run against [reqres.in](https://reqres.in) public REST API:
+**API tests** — run against [jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com) public REST API:
 - CRUD operations (GET, POST, PUT, DELETE)
 - Status code and response schema validation
 
