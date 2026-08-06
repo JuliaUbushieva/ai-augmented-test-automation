@@ -69,5 +69,5 @@ allure serve allure-results
 
 ## Author
 
-Iuliia Ubushieva — QA Engineer
+Julia Ubushieva — QA Engineer
 [LinkedIn](https://www.linkedin.com/in/juliaubushieva/)
