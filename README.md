@@ -70,4 +70,4 @@ allure serve allure-results
 ## Author
 
 Iuliia Ubushieva — QA Engineer
-[LinkedIn](https://www.linkedin.com/in/iuliiaubushieva/)
+[LinkedIn](https://www.linkedin.com/in/juliaubushieva/)
