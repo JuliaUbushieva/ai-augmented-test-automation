@@ -10,7 +10,7 @@ class LoginPage:
     def __init__(self, page: Page, base_url: str):
         self.page = page
         self.base_url = base_url
-        # Playwright locators are lazy - defined once, resolved at action time
+        # Playwright locators are lazy: defined once, resolved at action time
         self.username_input = page.locator("#username")
         self.password_input = page.locator("#password")
         self.login_button = page.locator("button[type='submit']")
