@@ -6,3 +6,4 @@ allure-results/
 allure-report/
 test-results/
 .env
+.idea/
