@@ -1,7 +1,3 @@
-"""UI tests for the checkboxes page.
-
-Run: pytest tests/ui/test_checkboxes.py -v
-"""
 import allure
 import pytest
 from playwright.sync_api import Page

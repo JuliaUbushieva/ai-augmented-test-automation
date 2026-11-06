@@ -1,5 +1,7 @@
 # AI-Augmented Test Automation
 
+![Test Suite](https://github.com/JuliaUbushieva/ai-augmented-test-automation/actions/workflows/tests.yml/badge.svg)
+
 UI, API, and visual regression test suites built in Python with Playwright and Selenium, integrating AI-powered testing tools.
 
 ## Tech Stack
